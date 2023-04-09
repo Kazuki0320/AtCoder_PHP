@@ -10,7 +10,11 @@
 <?php
 	$db = new mysqli('localhost:8889', 'root', 'root', 'mydb');
 	$records = $db->query('select * from my_items');
-	var_dump($records);
+	if($records) {
+		while ($record = $records->fetch_assoc()) { //アソシエイトの略がassocで、連想配列で取り出すことを意味する。
+			echo $record['item_name'] . ',' . $record['price'] . '<br>';
+		}
+	}
 ?>
 </body>
 </html>
