@@ -6,6 +6,11 @@ if(!$stmt) {
 	die($db->error);
 }
 $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT);
+//三項演算子の場合
+$page = ($page ? : 1);
+// if(!$page) {
+// 	$page = 1;
+// }
 $start = ($page - 1) * 5;
 $stmt->bind_param('i', $start);
 $stmt->execute();
@@ -23,6 +28,9 @@ $stmt->execute();
 
 	<p>→<a href="input.html">新しいメモ</a></p>
 
+	<?php if(!$result) : ?>
+		<p>表示するメモはありません</p>
+	<?php endif; ?>
 	<?php $stmt->bind_result($id, $memo, $created); ?>
 	<?php while($stmt->fetch()):?>
 	<div>
