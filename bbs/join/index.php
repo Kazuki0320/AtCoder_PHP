@@ -46,8 +46,19 @@ if($image['name'] !== '' && $image['error'] === 0) {
 
 if(empty($error)) {
     $_SESSION['form'] = $form;
-    header('Location: check.php');
-    exit();
+
+    //画像のアップデート
+    if($image['name'] !== '') {
+        $filename = date('YmdHis') . '_' . $image['name'];
+        if(!move_uploaded_file($image['tmp_name'], '../member_picture/' . $filename)) {
+            die('ファイルのアップロードに失敗しました');
+        }
+        $_SESSION['form']['image'] = $filename;
+        header('Location: check.php');
+        exit();
+    } else {
+        $_SESSION['form']['image'] = '';
+    }
 }
 ?>
 <!DOCTYPE html>
