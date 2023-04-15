@@ -33,6 +33,15 @@ if($form['password'] === '') {
     $error['password'] = 'length';
 }
 
+//画像のチェック
+$image = $_FILES['image'];
+if($image['name'] !== '' && $image['error'] === 0) {
+    $type = mime_content_type($image['tmp_name']);
+    if($type !== 'image/png' && $type !== 'image/jpeg') {
+        $error['image'] = 'type';
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -83,7 +92,9 @@ if($form['password'] === '') {
                 <dt>写真など</dt>
                 <dd>
                     <input type="file" name="image" size="35" value=""/>
-                    <p class="error">* 写真などは「.png」または「.jpg」の画像を指定してください</p>
+                    <?php if(isset($error['image']) && $error['image'] === 'type'): ?>
+                        <p class="error">* 写真などは「.png」または「.jpg」の画像を指定してください</p>
+                    <?php endif; ?>
                     <p class="error">* 恐れ入りますが、画像を改めて指定してください</p>
                 </dd>
             </dl>
