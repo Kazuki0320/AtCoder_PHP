@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $form = [
     'name' => '',
     'email' => '',
@@ -42,6 +44,11 @@ if($image['name'] !== '' && $image['error'] === 0) {
     }
 }
 
+if(empty($error)) {
+    $_SESSION['form'] = $form;
+    header('Location: check.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
