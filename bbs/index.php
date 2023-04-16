@@ -80,7 +80,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
             <p><?php echo hsc($message); ?><span class="name">（<?php echo hsc($name); ?>）</span></p>
             <p class="day"><a href="view.php?id=<?php echo hsc($id); ?>"><?php echo hsc($created); ?></a>
-                [<a href="delete.php?id=" style="color: #F33;">削除</a>]
+            <?php if($_SESSION['id'] === $member_id): ?>
+                [<a href="delete.php?id=<?php echo hsc($id); ?>" style="color: #F33;">削除</a>]
+            <?php endif; ?>
             </p>
         </div>
         <?php endwhile; ?>
