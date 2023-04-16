@@ -19,6 +19,27 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $form['name'] = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
     if($form['name'] === '') {
         $error['name'] = 'blank';
+    }else {
+        $db = dbConnect();
+        //DBから入力されたメールアドレスをカウントする処理
+        $stmt = $db->prepare('select count(*) from members where email=?');
+        if(!$stmt) {
+            die($db->error);
+        }
+        $stmt->bind_param('s', $form['email']);
+        $success = $stmt->execute();
+        if(!$success) {
+            die($db->error);
+        }
+
+        //指定されたメールアドレスの結果を$cntに代入し、その後fetchで取得
+        $stmt->bind_result($cnt);
+        $cnt = $stmt->fetch();
+        var_dump($cnt);
+
+        if($cnt > 0) {
+            $error['email'] = 'duplicate';
+        }
     }
 }
 
@@ -95,7 +116,9 @@ if(empty($error)) {
                     <?php if(isset($error['email']) && ($error['email'] === 'blank')): ?>
                         <p class="error">* メールアドレスを入力してください</p>
                     <?php endif; ?>
-                    <p class="error">* 指定されたメールアドレスはすでに登録されています</p>
+                    <?php if(isset($error['email']) && $error['email'] === 'duplicate'): ?>
+                        <p class="error">* 指定されたメールアドレスはすでに登録されています</p>
+                    <?php endif; ?>
                 <dt>パスワード<span class="required">必須</span></dt>
                 <dd>
                     <input type="password" name="password" size="10" maxlength="20" value="<?php echo hsc($form['password']); ?>"/>
