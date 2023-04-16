@@ -79,7 +79,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <img src="member_picture/<?php echo hsc($picture); ?>" width="48" height="48" alt=""/>
             <?php endif; ?>
             <p><?php echo hsc($message); ?><span class="name">（<?php echo hsc($name); ?>）</span></p>
-            <p class="day"><a href="view.php?id="><?php echo hsc($created); ?></a>
+            <p class="day"><a href="view.php?id=<?php echo hsc($id); ?>"><?php echo hsc($created); ?></a>
                 [<a href="delete.php?id=" style="color: #F33;">削除</a>]
             </p>
         </div>
