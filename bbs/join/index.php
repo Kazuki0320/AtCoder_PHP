@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('../library.php');
 
 $form = [
     'name' => '',
@@ -7,13 +8,6 @@ $form = [
     'password' => '',
 ];
 $error = [];
-
-/*
-・htmlspecialcharsを短くする処理
-*/
-function hsc($value) {
-    return htmlspecialchars($value, ENT_QUOTES);
-}
 
 //下記はformが送信された時の処理
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
