@@ -24,4 +24,3 @@ class Phone
 }
 $user = new User();
 $user->UserCallPhone();
-?>
