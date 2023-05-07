@@ -32,6 +32,7 @@ echo '<br>';
 class User1 {
     protected $phone1;
 
+    //タイプヒントにPhone1を指定して、Phone1クラスのインスタンスを$phone1として渡してくれる。
     public function __construct(Phone1 $phone1) {
         $this->phone1 = $phone1;
     }
