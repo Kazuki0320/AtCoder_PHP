@@ -41,6 +41,7 @@ class BaseCar{
 	}
 }
 // 新車クラス
+//車の基本クラスを継承している
 class NewCar1 extends BaseCar{
 	public function printNewCar($price) {
 		print("新車です<br />");
@@ -48,6 +49,7 @@ class NewCar1 extends BaseCar{
 	}
 }
 // 中古クラス
+//車の基本クラスを継承している
 class OldCar1 extends BaseCar{
 	public function printOldCar($price) {
 		print("中古車です<br />");
