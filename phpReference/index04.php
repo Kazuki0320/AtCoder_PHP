@@ -24,5 +24,17 @@ $keys1 = array_keys($array2, "レモン");
 print_r($keys1);
 echo '<br>';
 
+//foreachを使ったvalueの抽出方法
+$array3 = ["apple" => "りんご", "lemon" => "レモン", "peach" => "もも"];
+foreach($array3 as $value) {
+	echo $value. "\n";
+	echo "<br>";
+}
+
+//foreachを使って、keyとvalueを出力
+$array4 = ["apple" => "りんご", "lemon" => "レモン", "peach" => "もも"]; 
+foreach($array4 as $key => $value) {
+	echo $key . " : " . $value. "\n";
+}
 
 ?>
