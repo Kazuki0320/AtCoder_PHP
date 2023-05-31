@@ -57,17 +57,17 @@
 	 */
 	//[静的メソッドからプロパティへアクセスする場合]
 	//thisは、クラスのインスタンス化をしていないと使えない。自身のクラスのインスタンス化したオブジェクトを指しているため。
-	class tesClass {
-		private $strVar;
-		private static $staticVar;
+	// class tesClass {
+	// 	private $strVar;
+	// 	private static $staticVar;
 
-		public static function staticName($var) {
-			$this->strVar = $var;
-			echo $this->strVar;
-		}
-	}
+	// 	public static function staticName($var) {
+	// 		$this->strVar = $var;
+	// 		echo $this->strVar;
+	// 	}
+	// }
 
-	testClass::staticName("スタティック");//出力結果:エラー
+	// testClass::staticName("スタティック");//出力結果:エラー
 
 	//thisは使えないが、selfだとクラスを指すため使える。
 	class testClass1 {
