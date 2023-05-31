@@ -1,6 +1,7 @@
 <?php
 //継承について
 //継承を利用しないパターン
+
 // 新車クラス
 class NewCar{
 	const MANUFACTURER = "○○自動車";
@@ -57,31 +58,10 @@ class OldCar1 extends BaseCar{
 	}
 }
 
-//継承を利用した後にオーバーライドするパターン
-class NewCar2 extends BaseCar {
-	public function printCar($price) {
-		print("新車です<br />");
-		$this->printCar($price);
-	}
-}
-
-class OldCar2 extends BaseCar {
-	public function printCar($price) {
-		print("中古車です<br />");
-		$this->printCar($price);
-	}
-}
-
 $newCar1 = new NewCar1();
 $oldCar1 = new OldCar1();
 
-$newCar2 = new NewCar2();
-$oldCar2 = new OldCar2();
-
 echo $newCar1->printNewCar(2000);
 echo $oldCar1->printOldCar(200);
-
-echo $newCar2->printCar(4000);
-echo $oldCar2->printCar(200);
 
 ?>
