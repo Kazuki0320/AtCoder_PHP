@@ -11,6 +11,7 @@ $check = "abc";
 // 	echo "検索文字列なし";
 // }
 //上記書き方はNG。下記が正解
+//strposは、文字列が存在してる場合0を返してくるので、php的には、booleanの判定となり、否定となる。
 $str = "abcd";
 $check = "abc";
 
