@@ -8,7 +8,7 @@ for ($i = 1; $i < 10; $i++) {
 				$c = $i * 100 + $j * 10 + $k;
 				if ($number <= $c && $number * $j + $k) {
 					echo $c;
-					exit;
+					exit (0);
 				}
 			}
     }
