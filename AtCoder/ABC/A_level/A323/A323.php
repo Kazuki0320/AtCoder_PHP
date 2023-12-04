@@ -1,11 +1,13 @@
 <?php
 	$m = fgets(STDIN);
-	$s = str_split($m);
+	$s = str_split(trim($m));
 
-	for($i = 1; $i <= $m; $i++) {
-		if($s[$i] % 2 === '0' && $s[$i] === '0') {
-			echo "Yes";
+  $result = "Yes";
+	for($i = 1; $i <= count($s); $i += 2) {
+		if($s[$i] === '1') {
+			$result = "No";
+			break;
 		}
-		echo "No";
 	}
+	echo $result;
 ?>
