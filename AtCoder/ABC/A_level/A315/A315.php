@@ -1,13 +1,14 @@
 <?php
-	fscanf(STDIN, "%s", $s);
+  fscanf(STDIN, "%s", $s);
+  $m = "";
 
-	$m = "";
-	for($i = 0; $i < $s; $i++) {
-		if($s === "a" || $s === "i" || $s === "u" || $s === "e" || $s === "o") {
-			break;
-		} else {
-			$m .= $s;
-		}
-	}
-	echo $m;
+  for ($i = 0; $i < strlen($s); $i++) {
+    $currentChar = $s[$i];
+    if ($currentChar === "a" || $currentChar === "i" || $currentChar === "u" || $currentChar === "e" || $currentChar === "o") {
+        continue;
+    } else {
+        $m .= $currentChar;
+    }
+  }
+  echo $m;
 ?>
