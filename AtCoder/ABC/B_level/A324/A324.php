@@ -7,9 +7,13 @@
 		$n /= 3;
 	}
 
+	//処理1
 	if($n === 1) {
 		echo "Yes";
 	} else {
 		echo "No";
 	}
+	
+	//処理2
+	echo ($n === 1) ? 'Yes' : 'No';
 ?>
