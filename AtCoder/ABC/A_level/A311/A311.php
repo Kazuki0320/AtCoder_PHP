@@ -5,6 +5,7 @@ $s = str_split(trim(fgets(STDIN)));
 $A_count = 0;
 $B_count = 0;
 $C_count = 0;
+
 for ($i = 0; $i < $n; $i++) {
     if ($s[$i] === 'A') {
         $A_count++;
