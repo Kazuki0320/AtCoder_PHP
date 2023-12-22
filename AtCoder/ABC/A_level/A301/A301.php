@@ -8,17 +8,17 @@ $B = round($N / 2);
 
 for($i = 0; $i < $N; $i++) {
 	if($C[$i] == "T") {
-		$result_T++;	
+		$result_T++;
+		if($B <= $result_T) {
+			echo "T";
+			break;
+		}	
 	} else {
 		$result_A++;
+		if($B <= $result_A) {
+			echo "A";
+			break;
+		}
 	}
-	
-	if($B <= $result_T) {
-		echo "T";
-		break;
-  } else if($B <= $result_A) {
-		echo "A";
-		break;
-  }
 }
 ?>
