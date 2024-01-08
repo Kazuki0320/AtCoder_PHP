@@ -1,27 +1,27 @@
 <?php
-	$QPSR = explode(" ", trim(fgets(STDIN)));
-	$A = explode(" ", trim(fgets(STDIN)));
-	
-	var_dump($QPSR);
-	var_dump($A);
-	$result1 = "";
-	$result2 = "";
-	$ans = $QPSR[2] - $QPSR[1];
-	for($i = 0; $i < $QPSR[0]; $i++) {
-	    if($QPSR[1] == $A[$i]) {
-	        if($QPSR[2] == $A[$i+$ans]) {
-	            for($j = 0; $j < $A[$i+$ans]; $j++) {
-	                $result1 .= $A[$j];
-	            }
-	        }
-	    } else if($QPSR[3] == $A[$i]) {
-	        if($QPSR[4] == $A[$i+$ans]) {
-	            for($k = 4; $k < $A[$i+$ans]; $k++) {
-	                $result2 .= $A[$k];
-	            }
-	        }
-	    }
-	}
-	echo $result1;
-	echo $result2;
-?
+$QPSR = explode(" ", trim(fgets(STDIN)));
+$A = explode(" ", trim(fgets(STDIN)));
+
+$result1 = "";
+$result2 = "";
+
+for ($i = $QPSR[1] - 1; $i < $QPSR[2]; $i++) {
+    $result1 .= $A[$i] . " ";
+}
+for ($j = $QPSR[3] - 1; $j < $QPSR[4]; $j++) {
+    $result2 .= $A[$j] . " ";
+}
+
+$ans1 = explode(" ", trim($result1));
+$ans2 = explode(" ", trim($result2));
+
+foreach ($A as $index => $value) {
+    if ($QPSR[1] - 1 <= $index && $index <= $QPSR[2] - 1) {
+        echo array_shift($ans2) . " ";
+    } elseif ($QPSR[3] - 1 <= $index && $index <= $QPSR[4] - 1) {
+        echo array_shift($ans1) . " ";
+    } else {
+        echo $value . " ";
+    }
+}
+?>
