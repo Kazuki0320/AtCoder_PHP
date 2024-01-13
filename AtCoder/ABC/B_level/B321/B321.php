@@ -1,18 +1,23 @@
 <?php
-fscanf(STDIN, "%d %d", $N, $R);
-$number1 = explode(" ", trim(fgets(STDIN)));
-sort($number1);
-$newNumber = 0;
-for($i = 1; $i < $N-2; $i++) {
-    $newNumber += (int)$number1[$i];
-}
-$result = $R - $newNumber;
+// 入力の読み込み
+[$N, $X] = array_map('intval', explode(" ", fgets(STDIN)));
+$A = array_map('intval', explode(" ", fgets(STDIN)));
+$A[] = -1;
 
-if($result < 100) {
-    echo $result;
-} else if($result == 100){
-    echo 0;
-} else {
-    echo -1;
+for ($last = 0; $last <= 100; $last++) {
+    $B = $A;
+    $B[$N - 1] = $last;
+    sort($B);
+    $sum = 0;
+    for ($i = 1; $i < $N - 1; $i++) {
+        $sum += $B[$i];
+    }
+    if ($sum >= $X) {
+        echo $last . PHP_EOL;
+        exit();
+    }
 }
+
+echo "-1" . PHP_EOL;
 ?>
+
