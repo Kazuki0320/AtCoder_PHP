@@ -1,16 +1,10 @@
 <?php
-[$N, $C] = fscanf(STDIN, "%d %d");
-$S = explode(" ", trim(fgets(STDIN)));
-$new = "";
-for($i = $C; $i <= $N; $i++) {
-    if($i < $N) {
-        $S[$i] .= " ";
-		$S[$i] .= "0";
-		$new = $S[$i];
-    } else {
-        $new .= " ";
-        $new .= "0";
-    }
+
+[$N,$K] = array_map('intval',explode(" ", trim(fgets(STDIN))));
+$A = array_map('intval',explode(" ", trim(fgets(STDIN))));
+for ($i = 0; $i < $K; $i++) {
+    array_shift($A);
+    $A[] = 0;
 }
-echo $new;
-?>
+echo implode(" ", $A) . PHP_EOL;
+
