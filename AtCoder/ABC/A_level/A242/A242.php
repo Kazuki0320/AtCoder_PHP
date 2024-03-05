@@ -1,15 +1,10 @@
 <?php
-fscanf(STDIN, "%s", $s);
+fscanf(STDIN, "%d%d%d%d", $a,$b,$c,$d);
 
-$a = explode($s[0], $s);
-
-if (count($a) === 2) {
-	echo 1;
+if($a >= $x) {
+	echo '1';
+} else if($a < $x && $x <= $b) {
+	echo $c / ($b - $a);
 } else {
-	for ($i=0; $i < count($a); $i++) {
-		if (strlen($a[$i])) {
-			echo $i+1;
-			exit();
-		}
-	}
+	echo '0';
 }
