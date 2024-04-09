@@ -1,14 +1,6 @@
 <?php
-	fscanf(STDIN, "%d%d%d%d", $V, $T, $S, $D);
-	for($i = 1; $i < $S; $i++) {
-		$m = $V * $i;
-		if($D == $m) {
-			if($T <= $i && $i <= $S) {
-				echo "No";
-				exit;
-			} else {
-				echo "No";
-				exit;
-			}
-		}
-	}
+    list($V,$T,$S,$D) = explode(" ",trim(fgets(STDIN)));
+    
+    if($V*$T <= $D && $D <= $V*$S) echo "No" . PHP_EOL;
+    else echo "Yes" . PHP_EOL;
+?>
