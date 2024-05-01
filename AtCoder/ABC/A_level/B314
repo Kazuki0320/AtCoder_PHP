@@ -1,0 +1,10 @@
+<?php
+    $inp = trim(fgets(STDIN)); // 文字列を取得
+    $vowels = ['a', 'i', 'u', 'e', 'o']; // 母音のリスト
+
+    // 母音を削除した文字列を生成
+    $output = str_replace($vowels, '', $inp);
+
+    echo $output; // 結果を出力
+?>
+
