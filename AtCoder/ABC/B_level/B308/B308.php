@@ -6,7 +6,7 @@
     $ans = 0;
 
     foreach($c as $v) {
-        $price = $P[0];
+        $price = $p[0];
         for($j = 0; $j < $m; $j++) {
             if($v == $d[$j]) {
                 $price = $p[$j + 1];
