@@ -1,6 +1,5 @@
 <?php
 $S = trim(fgets(STDIN));
-
 $first = strpos($S, "B");
 $last = strrpos($S, "B");
 
