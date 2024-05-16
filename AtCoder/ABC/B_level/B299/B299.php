@@ -1,6 +1,5 @@
 <?php
     fscanf(STDIN, "%d%d", $N, $T);
-
     $A = array_map("intval", explode(" ", trim(fgets(STDIN))));
     $B = array_map("intval", explode(" ", trim(fgets(STDIN))));
     
