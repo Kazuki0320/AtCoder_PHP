@@ -5,6 +5,7 @@ while($i<$n){
   $a[]=explode(" ",trim(fgets(STDIN)));
   ++$i;
 }
+
 $i=0;
 while($i<$n){
   $b[]=explode(" ",trim(fgets(STDIN)));
