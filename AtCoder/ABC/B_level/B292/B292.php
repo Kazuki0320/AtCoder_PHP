@@ -1,5 +1,4 @@
 <?php
-
 // 標準入力から読み取る
 fscanf(STDIN, "%d %d", $N, $Q);
 
