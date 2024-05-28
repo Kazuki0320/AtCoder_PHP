@@ -1,7 +1,6 @@
 <?php
 // 入力を読み取る
 fscanf(STDIN, "%d%d", $A, $B);
-
 $S = [];
 $awardWinner = [];
 
