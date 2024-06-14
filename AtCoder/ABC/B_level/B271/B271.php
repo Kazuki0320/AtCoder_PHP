@@ -1,6 +1,5 @@
 <?php
     fscanf(STDIN, "%d%d", $A, $B);
-
     
     for($i = 0; $i < $A; $i++) {
         $tmp = explode(" ", trim(fgets(STDIN)));
