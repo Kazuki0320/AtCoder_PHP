@@ -1,17 +1,11 @@
 <?php
-    fscanf(STDIN, "%d%d%d", $x, $y, $z);
-
-    $result = -1;
-    if($x < $y || $y < 0) {
-        $result = abs($x);
-    }
-
-    if($z < $y && $z < $x) {
-        $result = abs($z) + abs($x - $z);
-    }
-
-    if($result === -1) {
-        echo -1;
+    list($x,$y,$z) = explode(" ",trim(fgets(STDIN)));
+    if($y<0) list($x,$y,$z) = [-$x,-$y,-$z];
+    
+    if($x<$y) {
+        echo abs($x) . PHP_EOL;
     } else {
-        echo $result;
+        if($z>$y) echo -1 . PHP_EOL;
+        else echo abs($z) + abs($x-$z);
     }
+?>
