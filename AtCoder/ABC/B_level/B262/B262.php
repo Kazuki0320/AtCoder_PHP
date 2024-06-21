@@ -1,9 +1,7 @@
 <?php
 fscanf(STDIN, "%d %d", $N, $M);
-
 // 隣接行列を初期化
 $adjMatrix = array_fill(0, $N, array_fill(0, $N, false));
-
 // 辺の情報を入力し、隣接行列に記録
 for ($i = 0; $i < $M; $i++) {
     fscanf(STDIN, "%d %d", $U, $V);
