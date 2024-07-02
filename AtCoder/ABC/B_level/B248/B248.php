@@ -1,17 +1,13 @@
-<?php   
-    list($A, $B, $N) = explode(" ", trim(fgets(STDIN)));
-    
-    $result = $A;
-    if($A >= $B) {
-        echo 0;
-        exit;
-    }
+<?php
+list($A, $B, $K) = explode(" ", trim(fgets(STDIN)));
 
-    for($i = 1; $i <= $B; $i++) {
-	    $result += $result * $N;
+$count = 0;
 
-	    if($B <= $result) {
-		    echo $i;
-		    exit;
-	    }
-    }
+while ($A < $B) {
+    $A *= $K;
+    $count++;
+}
+
+echo $count;
+?>
+
