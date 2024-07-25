@@ -2,7 +2,6 @@
 // 入力の読み込み
 fscanf(STDIN, "%d %d", $H, $W);
 $A = [];
-
 for ($i = 0; $i < $H; $i++) {
     $A[$i] = array_map('intval', explode(' ', trim(fgets(STDIN))));
 }
