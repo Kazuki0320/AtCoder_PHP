@@ -1,16 +1,11 @@
 <?php
     $str_array = [];
     for($i = 0; $i < 3; $i++) {
-        $S = trim(fgets(STDIN));
-
-        $str_array []= $S;
+        $str_array []= trim(fgets(STDIN));
     }
 
-    fscanf(STDIN, "%d", $N);
-    $num = array_map(function($digit) {
-        return intval($digit)-1;   
-    }, str_split($N));
-
-    for($j = 0; $j < count($num); $j++) {
-        echo $str_array[$num[$j]];
+    $num =str_split(trim(fgets(STDIN)));
+    
+    foreach($num as $v) {
+        echo $str_array[(int)$v-1];
     }
