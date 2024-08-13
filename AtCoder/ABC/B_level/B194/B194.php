@@ -1,32 +1,24 @@
 <?php
-    fscanf(STDIN, "%d", $N);
+fscanf(STDIN, "%d", $n);
 
-    $A = [];
-    $B = [];
+$a = array_fill(0, $n, 0);
+$b = array_fill(0, $n, 0);
 
-    for($i = 0; $i < $N; $i++) {
-        fscanf(STDIN, "%d%d", $a, $b);
-        $A [$i]= $a;
-        $B [$i]= $b;
-    }
+for ($i = 0; $i < $n; $i++) {
+    fscanf(STDIN, "%d %d", $a[$i], $b[$i]);
+}
 
-    $A_min = min($A);
-    $B_min = min($B);
+$res = 1000000000;
 
-    $all_count = 0;
-    for($j = 0; $j < $N; $j++) {
-        if($A[$j] == $A_min && $B[$j] == $B_min) {
-            $all_count = $A_min + $B_min;
-            array_splice($B, $j, 1);
-        }
-        $B_min = min($B);
-        $AB_max = max($A_min, $B_min);
-        if($all_count < $AB_max) {
-            $result = $all_count;
+for ($i = 0; $i < $n; $i++) {
+    for ($j = 0; $j < $n; $j++) {
+        if ($i == $j) {
+            $res = min($res, $a[$i] + $b[$j]);
         } else {
-            $result = $AB_max;
+            $res = min($res, max($a[$i], $b[$j]));
         }
     }
-    
-    echo $result . PHP_EOL;
+}
+
+echo $res . PHP_EOL;
 
