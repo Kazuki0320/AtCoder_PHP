@@ -9,16 +9,18 @@
         fscanf(STDIN, "%d%d%d", $A[$i], $P[$i], $X[$i]);
     }
 
-    $stock = 0;
-    $store = [];
+    $min_price = PHP_INT_MAX;
 
     for($i = 0; $i < $N; $i++) {
-        for($j = 0; $j < $N; $j++) {
-            $stock = $X[$j] - $A[$j];
-            if(0 < $stock) {
-                $store = $P[$j];
-            }
+        $stock = $X[$i] - $A[$i];
+        if($stock > 0) {
+            $min_price = min($min_price, $P[$i]);
         }
     }
 
-    echo min($store) . PHP_EOL;
+    if ($min_price == PHP_INT_MAX) {
+        echo "-1" . PHP_EOL;
+    } else {
+        echo $min_price . PHP_EOL;
+    }
+    
