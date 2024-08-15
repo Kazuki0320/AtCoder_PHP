@@ -1,6 +1,5 @@
 <?php
     fscanf(STDIN, "%d", $N);
-
     $A = array_fill(0, $N, 0);
     $P = array_fill(0, $N, 0);
     $X = array_fill(0, $N, 0);
