@@ -1,6 +1,5 @@
 <?php
     fscanf(STDIN, "%d%d", $N, $X);
-
     $S = str_split(trim(fgets(STDIN)));
     foreach($S as $answer) {
         if($answer == "o") {
