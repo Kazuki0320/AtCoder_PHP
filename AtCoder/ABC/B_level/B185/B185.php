@@ -12,6 +12,7 @@ for ($i = 0; $i < $M; $i++) {
   $N = min($Max, $N + $B - $A);
   $time = $B;
 }
+
 $N -= $T - $time;
 if ($N <= 0) {
     echo "No";
