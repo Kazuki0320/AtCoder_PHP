@@ -2,7 +2,6 @@
 // 入力を取得
 fscanf(STDIN, "%d", $N);
 $x = array_map('intval', explode(' ', trim(fgets(STDIN))));
-
 // マンハッタン距離の計算
 $manhattan_distance = 0;
 foreach ($x as $xi) {
