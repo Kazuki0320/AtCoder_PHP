@@ -1,19 +1,20 @@
 <?php
-    $A = explode(" ", trim(fgets(STDIN)));
-    $B = explode(" ", trim(fgets(STDIN)));
+    $A = trim(fgets(STDIN));
+    $B = trim(fgets(STDIN));
 
-    array_reverse($A);
-    array_reverse($B);
+    $min_changes = PHP_INT_MAX;
+    $A_strlen = strlen($A);
+    $B_strlen = strlen($B);
 
-    $count = 0;
-    for($i = 0; $i < count($B); $i++) {
-        if($B[$i] == $A[$i]) {
-            for($j = $i; $i < count($B); $j++) {
-                if($B[$j] != $A[$j]) {
-                    $count++;
-                }
+    for($i = 0; $i <= $A_strlen - $B_strlen; $i++) {
+        $count = 0;
+        
+        for($j = 0; $j < $B_strlen; $j++) {
+            if($A[$i + $j] != $B[$j]) {
+                $count++;
             }
         }
+        $min_changes = min($min_changes, $count);
     }
 
-    echo $count . PHP_EOL;
+    echo $min_changes . PHP_EOL;
