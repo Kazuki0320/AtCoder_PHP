@@ -5,6 +5,10 @@
 
     $result = 1;
     foreach ($A as $key => $value) {
+        if ($value == 0) {
+            echo 0;
+            exit;
+        }      
         $result *= $value;   
     }
 
