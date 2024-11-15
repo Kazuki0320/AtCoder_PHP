@@ -1,13 +1,18 @@
 <?php
-    $S = str_split(trim(fgets(STDIN)));
-    $T = str_split(trim(fgets(STDIN)));
+$s = trim(fgets(STDIN));
+$t = trim(fgets(STDIN));
 
-    $strlenS = count($S);
-    $strlenT = count($T);
+$n = strlen($s);
+$m = strlen($t);
 
-    for($i = 0; $i < $strlenS; $i++) {
-        $value = array_search($S[$i], $T);
-        echo $value + 1 . " ";
-        // 見つかった文字を削除して重複を防ぐ
-        unset($T[$value]);
+$a = array_fill(0,$n,0);
+
+$j = 0;
+for($i=0; $i<$m; $i++) {
+    if($s[$j] == $t[$i]) {
+        $a[$j] = $i+1;
+        $j++;
     }
+}
+
+echo implode(" ",$a) . PHP_EOL;
