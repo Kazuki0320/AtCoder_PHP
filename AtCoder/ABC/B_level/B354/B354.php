@@ -1,17 +1,24 @@
 <?php
     fscanf(STDIN, "%d", $N);
     
-    $names = [];
-    $rates = [];
+    $data = [];
     for($i = 0; $i < $N; $i++) {
         fscanf(STDIN, "%s %d", $name, $rate); 
         
-        $names [] = $name;
-        $rates [] = $rate;
+        $data [] = ['name' => $name, 'rate' => $rate];
     }
+    var_dump($data);
     
-    asort($names);
-    $sum = array_sum($rates);
-
+    // 名前を辞書順に並べる
+    usort($data, function($a, $b) {
+        return strcmp($a['name'], $b['name']);
+    });
+    var_dump($data);
+    
+    // レートの合計を計算
+    $sum = array_sum(array_column($data, 'rate'));
     $number = $sum % $N;
-    echo $names[$number] . PHP_EOL
+    
+    // 辞書順に並べた名前の $number 番目を出力
+    echo $data[$number]['name'] . PHP_EOL;
+
